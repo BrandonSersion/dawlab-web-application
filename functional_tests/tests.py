@@ -3,6 +3,8 @@ from selenium import webdriver
 import time
 from selenium.common.exceptions import WebDriverException
 
+import os
+
 MAX_WAIT = 10  
 
 class FunctionalTest(StaticLiveServerTestCase):
@@ -30,18 +32,33 @@ class LayoutAndStylingTest(FunctionalTest):
         self.browser.get(self.live_server_url)
         self.browser.set_window_size(1024, 768)
 
-        #User sees both the navbar and a body element
+        #User sees the nav, h1, and footer elements
         self.browser.find_element_by_tag_name('nav')
         self.browser.find_element_by_tag_name('h1')
+        self.browser.find_element_by_tag_name('footer')
 
-        #User visits 
+        #User sees the bootstrap theme
+        navbar_background_color = self.browser.find_element_by_tag_name('nav').value_of_css_property("background-color")
+        self.assertEqual(navbar_background_color, 'rgb(52, 58, 64)')
 
-        #User visits 
+        #User sees the static images
+        img_from_page = self.browser.find_element_by_tag_name('img')
+        img_from_file = os.path.join(os.path.dirname(__file__), '../content/static/img/Ali.jpg')
+        self.assertEqual(img_from_page, img_from_file)
+
+        #User sees the header in Arial or Times font
+        h1_font_from_page = self.browser.find_element_by_tag_name('h1').value_of_css_property("font-family")
+        self.assertEqual(h1_font_from_page, '"Arial", Times, serif')
+
 
 
 # class AuthenticationTest(FunctionalTest):
 
 #     def test_authentication(self):
+
+
+
+
 
 
 
