@@ -1,8 +1,12 @@
 from django.test import TestCase
-
+from django.contrib.staticfiles import finders
 
 class HomePageTest(TestCase):
 
-    def test_uses_home_template(self):
+    def test_home_page_uses_home_template(self):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
+
+    def test_home_page_static_exists(self): #not ideal, refactor to use self.client.get('/')
+        result = finders.find('base.css')
+        assert result
