@@ -14,7 +14,7 @@ class HomePageTest(TestCase):
 class TeamPageTest(TestCase):
 
     def test_team_page_uses_home_template(self):
-        response = self.client.get('/our_team.html')
+        response = self.client.get('/content/our_team/')
         self.assertTemplateUsed(response, 'our_team.html')
 
     def test_team_page_static_exists(self): #not ideal, refactor to use self.client.get('/')
