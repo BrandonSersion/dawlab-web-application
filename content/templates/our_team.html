@@ -4,17 +4,17 @@
 {% block page %}
     <div class="container">
         <div class="row">
-            <div class="offset-md-4 mt-5">
+            <div class="mx-auto my-5">
                 <h1>Our Team</h1>                                        
             </div>
         </div>
-        <div class="row content p-5">
-            {% for i in "xxxxxx" %}                
+        <div class="row mx-auto">
+            {% for i in "012345" %}                
                 <div class="card ml-5 p-2 mb-4">
                     <div class="card-body"><img src="http://via.placeholder.com/200x200"></div>
-                    <h4 class="card-title">John Doe</h4>
+                    <h4 class="card-title">{{ i }}</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere excepturi doloribus blanditiis.</p>
-                    <a href="#" class="btn btn-primary">See Profile</a>
+                    <a href="#" class="btn btn-primary bg-dark">See Profile</a>
                 </div>
             {% endfor %}
         </div>

@@ -15,3 +15,11 @@ h1{
 .card-text{
     font-size:.5em;
 }
+
+.float-center{
+    float:center;
+}
+
+.small{
+    font-size:.5em;
+}

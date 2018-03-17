@@ -96,7 +96,7 @@ class NavigationTest(FunctionalTest):
         our_team_url = "/content/our_team/"
 
         #User clicks the navbar company logo, remains on the home page.
-        self.browser.find_element_by_link_text('Dawlab').click()
+        self.browser.find_element_by_link_text('Dawlab Software').click()
         self.wait_for(lambda: self.assertEqual(home_url, self.browser.current_url))
         assert 'DAWLAB Software' in self.browser.title
 
@@ -111,6 +111,6 @@ class NavigationTest(FunctionalTest):
         assert 'DAWLAB Software' in self.browser.title
 
         #User clicks the navbar company logo, gets sent to the home page.
-        self.browser.find_element_by_link_text('Dawlab').click()
+        self.browser.find_element_by_link_text('Dawlab Software').click()
         self.wait_for(lambda: self.assertEqual(home_url, self.browser.current_url))
         assert 'DAWLAB Software' in self.browser.title

@@ -5,3 +5,6 @@ def home_page(request):
     
 def our_team_page(request):
     return render(request, 'our_team.html')
+
+def employee_zone_page(request):
+    return render(request, 'employee_zone.html')
