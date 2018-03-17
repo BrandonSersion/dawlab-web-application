@@ -93,12 +93,10 @@ class NavigationTest(FunctionalTest):
         self.browser.get(self.live_server_url)
         self.browser.set_window_size(1024, 768)
         home_url = self.browser.current_url
-        our_team_url = "/content/our_team.html"
+        our_team_url = "/content/our_team/"
 
         #User clicks the navbar company logo, remains on the home page.
         self.browser.find_element_by_link_text('Dawlab').click()
-        print(home_url)
-        print(self.browser.current_url)
         self.wait_for(lambda: self.assertEqual(home_url, self.browser.current_url))
         assert 'DAWLAB Software' in self.browser.title
 
@@ -109,6 +107,8 @@ class NavigationTest(FunctionalTest):
 
         #User clicks the navbar our_team option, stays on the our_team page.
         self.browser.find_element_by_link_text('Our Team').click()
+        print(home_url)
+        print(self.browser.current_url)
         self.wait_for(lambda: self.assertIn(our_team_url, self.browser.current_url))
         assert 'DAWLAB Software' in self.browser.title
 

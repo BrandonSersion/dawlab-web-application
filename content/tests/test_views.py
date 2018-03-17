@@ -8,8 +8,7 @@ class HomePageTest(TestCase):
         self.assertTemplateUsed(response, 'home.html')
 
     def test_home_page_static_exists(self): #not ideal, refactor to use self.client.get('/')
-        result = finders.find('base.css')
-        assert result
+        assert finders.find('base.css')
 
 class TeamPageTest(TestCase):
 
@@ -18,6 +17,5 @@ class TeamPageTest(TestCase):
         self.assertTemplateUsed(response, 'our_team.html')
 
     def test_team_page_static_exists(self): #not ideal, refactor to use self.client.get('/')
-        result = finders.find('base.css')
-        assert result
+        assert finders.find('base.css')
 
