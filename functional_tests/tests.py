@@ -107,8 +107,6 @@ class NavigationTest(FunctionalTest):
 
         #User clicks the navbar our_team option, stays on the our_team page.
         self.browser.find_element_by_link_text('Our Team').click()
-        print(home_url)
-        print(self.browser.current_url)
         self.wait_for(lambda: self.assertIn(our_team_url, self.browser.current_url))
         assert 'DAWLAB Software' in self.browser.title
 
@@ -116,46 +114,3 @@ class NavigationTest(FunctionalTest):
         self.browser.find_element_by_link_text('Dawlab').click()
         self.wait_for(lambda: self.assertEqual(home_url, self.browser.current_url))
         assert 'DAWLAB Software' in self.browser.title
-
-
-
-
-
-# class AuthenticationTest(FunctionalTest):
-
-#     def test_authentication(self):
-
-
-    #USER TESTS
-    
-    #User loads webpage, sees all page assets
-
-    #User x'es out newsletter popup
-
-    #OR User submits email to newsletter popup, gets feedback that it went through
-
-    #User clicks on employee area, is denied access
-
-    #User visits on a tablet 
-
-    #User visits on a cell phone
-
-
-    #EMPLOYEE TESTS
-
-    #Employee inputs username and password, is admitted to employee area
-
-    #OR Employee uses 'forgot password' option, it works
-
-    #Employee sees the latest company announcement
-
-    #Employee pages through past announcements
-
-    #Messenger alerts employee of unread messenges - employee views those messenges
-
-    #Employee views whole inbox
-
-    #Employee sends single messenge to other employee
-
-    #Employee sends group messenge to other employee
-
