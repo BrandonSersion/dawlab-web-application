@@ -31,7 +31,8 @@ class FunctionalTest(StaticLiveServerTestCase):
 class LayoutAndStylingTest(FunctionalTest):
 
     @skip('')
-    def test_home_layout_and_styling(self):
+    def test_layout_and_styling_home(self):
+
         #User visits home page.
         self.browser.get(self.live_server_url)
         self.browser.set_window_size(1024, 768)
@@ -58,10 +59,11 @@ class LayoutAndStylingTest(FunctionalTest):
         self.assertEqual(h1_font_from_page, '"Arial", Times, serif')
 
     @skip('')
-    def test_our_team_layout_and_styling(self):
-        page_url = '/content/our_team/'
+    def test_layout_and_styling_our_team(self):
+
+        our_team_page_url = '/content/our_team/'
         #User visits home page.
-        combined_url = self.live_server_url + page_url
+        combined_url = self.live_server_url + our_team_page_url
         self.browser.get(combined_url)
         self.browser.set_window_size(1024, 768)
 
@@ -86,7 +88,7 @@ class LayoutAndStylingTest(FunctionalTest):
         self.assertEqual(h1_font_from_page, '"Arial", Times, serif')
 
 class NavigationTest(FunctionalTest):
-    
+    @skip('')
     def test_navigation_between_home_and_our_team(self):
 
         #User visits the home page.
@@ -125,3 +127,17 @@ class NavigationTest(FunctionalTest):
         self.browser.find_element_by_link_text('Our Team').click()
         self.wait_for(lambda: self.assertIn(our_team_url, self.browser.current_url))
         assert 'DAWLAB Software' in self.browser.title
+
+class DataDisplayTest(FunctionalTest):
+
+    def test_data_display_our_team(self):
+
+        DEAN_OATES = "Dean Oates"
+
+        our_team_page_url = '/content/our_team/'
+        #User visits home page.
+        combined_url = self.live_server_url + our_team_page_url
+        self.browser.get(combined_url)
+        self.browser.set_window_size(1024, 768)
+
+        self.assertEqual(DEAN_OATES, self.browser.find_element_by_id('0').text)
