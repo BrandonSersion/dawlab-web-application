@@ -4,7 +4,6 @@ import time
 from selenium.common.exceptions import WebDriverException
 
 import os
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from unittest import skip
 
@@ -140,4 +139,20 @@ class DataDisplayTest(FunctionalTest):
         self.browser.get(combined_url)
         self.browser.set_window_size(1024, 768)
 
+        #User sees Dean Oates profile header
         self.assertEqual(DEAN_OATES, self.browser.find_element_by_id('0').text)
+
+        #User sees none of the card images are empty
+        card_images = self.browser.find_elements_by_class_name('profile-pictures')
+        for i in card_images:
+            self.assertNotEqual("", i.get_attribute("src"))
+
+        #User sees none of the card headers are empty
+        card_titles = self.browser.find_elements_by_class_name('card-title')
+        for i in card_titles:
+            self.assertNotEqual("", i.text)
+
+        #User sees none of the card body texts are empty
+        card_texts = self.browser.find_elements_by_class_name('card-text')
+        for i in card_texts:
+            self.assertNotEqual("", i.text)
