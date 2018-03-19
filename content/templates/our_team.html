@@ -9,11 +9,13 @@
             </div>
         </div>
         <div class="row mx-auto">
-            {% for i in "012345" %}                
+            {% for employee in employees %}                
                 <div class="card mx-auto mb-4 p-2">
-                    <div class="card-body"><img class="profile-pictures" src=""></div>
-                    <h4 id="{{ i }}" class="card-title"></h4>
-                    <p class="card-text"></p>
+                    {% with 'img/'|add:employee.first_name|add:'.jpg' as image_src %}
+                        <div class="card-body"><img class="profile-pictures" src="{% static image_src %}"></div>
+                    {% endwith %}   
+                    <h4 class="card-title">{{employee.first_name}} {{employee.last_name}}</h4>
+                    <p class="card-text">{{employee.job_description}}</p>
                     <a href="#" class="btn btn-primary bg-dark">See Profile</a>
                 </div>
             {% endfor %}

@@ -12,15 +12,16 @@ class HomePageTest(TestCase):
     def test_home_page_static_exists(self): #not ideal, refactor to use self.client.get('/')
         assert finders.find('base.css')
 
-class TeamPageTest(TestCase):
+# class TeamPageTest(TestCase):
 
-    def test_team_page_uses_right_template_and_models(self, **kwargs):
+#     def test_team_page_uses_right_template_and_models(self, **kwargs):
 
-        response = self.client.get('/content/our_team/')
-        queryset = Employee.objects.all()
-        print(queryset)
+        # response = self.client.get('/content/our_team/')
+        # temp = Employee.objects.filter('first_name')
+        # print(temp.first_name)
 
-
+        # for i in Employee.objects.all():
+        #     print("asf")
         # def unpack_employee_data(self, **kwargs):
 
 
