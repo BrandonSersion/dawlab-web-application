@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page %}
+
+<h1>{{employee.first_name}} {{employee.last_name}}</h1>
+<h2>{{employee.job_title}}</h2>
+<p>{{employee.bio}}</p>
+<p>{{employee.skills}}</p>
+
+{% endblock %}

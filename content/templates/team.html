@@ -16,7 +16,7 @@
                     {% endwith %}   
                     <h4 class="card-title">{{employee.first_name}} {{employee.last_name}}</h4>
                     <p class="card-text">{{employee.job_description}}</p>
-                    <a href="#" class="btn btn-primary bg-dark">See Profile</a>
+                    <a href="{% url 'team_profiles' pk=employee.id %}" class="btn btn-primary bg-dark">See Profile</a>
                 </div>
             {% endfor %}
         </div>
