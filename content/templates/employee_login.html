@@ -1,33 +1,31 @@
 {% extends 'base.html' %}
 
 {% block page %}
-    <div class="container">
-        <div class="row">
-            <div class="mx-auto mt-3 py-4">
-                <h1>Login</h1>                
-            </div>
-        </div>                
-        <div class="row">
-            <div class="mx-auto">
-                <form action="/action_page.php">
-                    <div class="form-group">
-                        <label for="email">Email address:</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd">
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox"><span class="small">Remember me</span>
-                        </label>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>                            
-                    </div>
-                </form>
-            </div>
+    <div class="row">
+        <div class="mx-auto mt-5">
+            <h1>Login</h1>                
+        </div>
+    </div>                
+    <div class="row">
+        <div class="mx-auto">
+            <form action="/action_page.php">
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"><span class="small">Remember me</span>
+                    </label>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>                            
+                </div>
+            </form>
         </div>
     </div>
 {% endblock %}

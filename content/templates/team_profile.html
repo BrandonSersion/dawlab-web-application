@@ -2,10 +2,27 @@
 {% load static %}
 
 {% block page %}
+<div class="row">
+    <div class="mx-auto mt-5">
+        <h1>{{employee.first_name}} {{employee.last_name}}</h1>        
+    </div>
+</div>
+<div class="row">
+    <div class="mx-auto">
+        <h5>{{employee.job_title}}</h5>        
+    </div>
+</div>
+<div class="row">
+    <div class="offset-md-2 col-md-8">
+        <p>{{employee.bio}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="mx-auto">
+        <p>{{employee.skills}}</p>
+    </div>
+</div>
 
-<h1>{{employee.first_name}} {{employee.last_name}}</h1>
-<h2>{{employee.job_title}}</h2>
-<p>{{employee.bio}}</p>
-<p>{{employee.skills}}</p>
+<a href="{% url 'team' %}" class="btn btn-link mx-auto">Back</a>
 
 {% endblock %}
