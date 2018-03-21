@@ -11,6 +11,3 @@ def team_page(request):
 def team_profile_pages(request, **kwargs):
     employee = Employee.objects.get(pk=kwargs['pk'])
     return render(request, 'team_profile.html', {'employee': employee})
-
-def employee_login_page(request):
-    return render(request, 'employee_login.html')

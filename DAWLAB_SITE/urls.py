@@ -19,10 +19,13 @@ from django.contrib import admin
 from content import views as content_views
 from content import urls as content_urls
 
+from authentication import views as authentication_views
+from authentication import urls as authentication_urls
+
 urlpatterns = [
     url(r'^$', content_views.home_page, name='home'),
     url(r'^content/', include(content_urls)),
-
+    url(r'^authentication/', include(authentication_urls)),
+    # url(r'^authentication/', include('allauth.urls')),
     url(r'^admin/', admin.site.urls),
-
 ]

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'contentbase.html' %}
 {% load static %}
 
 {% block page %}
@@ -12,17 +12,24 @@
         <h5>{{employee.job_title}}</h5>        
     </div>
 </div>
+
 <div class="row">
-    <div class="offset-md-2 col-md-8">
+    <div class="offset-md-3 col-md-6 small mt-5">
+        <h5>About me</h5>        
         <p>{{employee.bio}}</p>
     </div>
 </div>
 <div class="row">
-    <div class="mx-auto">
+    <div class="offset-md-3 col-md-6 small">
+        <h5>Skills</h5>
         <p>{{employee.skills}}</p>
     </div>
 </div>
 
-<a href="{% url 'team' %}" class="btn btn-link mx-auto">Back</a>
+<div class="row">
+    <div class="mx-auto">
+        <a href="{% url 'team' %}" class="btn btn-link mx-auto">Back</a>        
+    </div>
+</div>
 
 {% endblock %}
