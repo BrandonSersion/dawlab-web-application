@@ -6,7 +6,7 @@
 {% block page %}
     <h1>Django Allauth</h1>
     {% if user.is_authenticated %}
-        <p>Welcome {{ user.username }} !!!</p>
+        <p>You're already logged in as {{ user.username }}. Log Out?</p>
     {% else %}
         <a href="{% provider_login_url 'github' %}">Sign Up</a>
     {% endif %}

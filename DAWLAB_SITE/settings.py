@@ -135,4 +135,4 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/employee_zone/'
+LOGIN_REDIRECT_URL = '/authentication/employee_zone/'
