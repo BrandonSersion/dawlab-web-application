@@ -137,3 +137,4 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/authentication/employee_zone/'
 LOGOUT_REDIRECT_URL = '/authentication/'
+ACCOUNT_LOGOUT_ON_GET = True
