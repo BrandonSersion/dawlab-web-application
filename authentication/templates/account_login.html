@@ -1,10 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'contentbase.html' %}
+{% include 'base.html' %}
 
 {% load socialaccount %}
 
-<h1>Django Allauth Tutorial</h1>
-{% if user.is_authenticated %}
-<p>Welcome {{ user.username }} !!!</p>
-{% else %}
-<a href="{% provider_login_url 'github' %}">Sign Up</a>
-{% endif %}
+{% block page %}
+    <h1>Django Allauth</h1>
+    {% if user.is_authenticated %}
+        <p>Welcome {{ user.username }} !!!</p>
+    {% else %}
+        <a href="{% provider_login_url 'github' %}">Sign Up</a>
+    {% endif %}
+{% endblock %}

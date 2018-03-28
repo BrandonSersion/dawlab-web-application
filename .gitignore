@@ -4,3 +4,4 @@ __pycache__
 *.pyc
 .vscode
 virtenv_config
+settings.py

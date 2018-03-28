@@ -29,7 +29,6 @@ class FunctionalTest(StaticLiveServerTestCase):
 
 class LayoutAndStylingTest(FunctionalTest):
 
-    @skip('')
     def test_layout_and_styling_home(self):
 
         #User visits home page.
@@ -53,11 +52,12 @@ class LayoutAndStylingTest(FunctionalTest):
         # img_from_file = os.path.join(os.path.dirname(__file__), '../content/static/img/Ali.jpg')
         # self.assertEqual(img_from_page, img_from_file)
 
+        #HOST NAME
+
         #User sees the header in Arial or Times font
         h1_font_from_page = self.browser.find_element_by_tag_name('h1').value_of_css_property("font-family")
         self.assertEqual(h1_font_from_page, '"Arial", Times, serif')
 
-    @skip('')
     def test_layout_and_styling_our_team(self):
 
         our_team_page_url = '/content/our_team/'
@@ -128,7 +128,7 @@ class NavigationTest(FunctionalTest):
         assert 'DAWLAB Software' in self.browser.title
 
 class DataDisplayTest(FunctionalTest):
-
+    @skip('')
     def test_data_display_our_team(self):
 
         DEAN_OATES = "Dean Oates"
