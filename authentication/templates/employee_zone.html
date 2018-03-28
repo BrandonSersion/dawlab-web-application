@@ -1,6 +1,15 @@
-{% if user.is_authenticated %}
-    <h1>YOU ARE AUTHENTICATED</h1>
-{% else %}
-    <h1>Get out</h1>
-{% endif %}
+{% extends 'contentbase.html' %}
 
+{% load static %}
+
+{% block page %}
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="mx-auto mt-5 mb-4">
+            <h1>Welcome {{ user.username }}!!!</h1>
+        </div>
+    </div>
+    {% else %}
+        <h1>Get out</h1>
+    {% endif %}
+{% endblock %}
