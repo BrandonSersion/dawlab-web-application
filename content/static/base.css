@@ -24,3 +24,14 @@ h1{
 .small{
     font-size:.5em;
 }
+
+.medium{
+    font-family: "Arial", Times, serif;
+    
+    font-size:1em;
+}
+
+li{
+    list-style-type: none;    
+    
+}
