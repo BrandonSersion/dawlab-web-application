@@ -9,7 +9,23 @@
             <h1>Welcome {{ user.username }}!!!</h1>
         </div>
     </div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">Logos & Branding</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active container" id="home"></div>
+        <div class="tab-pane container" id="menu1">dsads</div>
+        <div class="tab-pane container" id="menu2">...</div>
+    </div>
     {% else %}
-        <h1>Get out</h1>
+        <h1>Please log in.</h1>
     {% endif %}
 {% endblock %}
