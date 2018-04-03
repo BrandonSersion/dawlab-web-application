@@ -138,3 +138,8 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/authentication/employee_zone/'
 LOGOUT_REDIRECT_URL = '/authentication/'
 ACCOUNT_LOGOUT_ON_GET = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
