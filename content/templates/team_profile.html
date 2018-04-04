@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block content %}
+
 <div class="row">
-    <div class="mx-auto mt-5">
+    <div class="mx-auto">
         <h1>{{employee.first_name}} {{employee.last_name}}</h1>        
     </div>
 </div>
+
 <div class="row">
     <div class="mx-auto">
         <h5>{{employee.job_title}}</h5>        
@@ -14,11 +16,12 @@
 </div>
 
 <div class="row">
-    <div class="offset-md-3 col-md-6 small mt-5">
+    <div class="offset-md-3 col-md-6 small">
         <h5>About me</h5>        
         <p>{{employee.bio}}</p>
     </div>
 </div>
+
 <div class="row">
     <div class="offset-md-3 col-md-6 small">
         <h5>Skills</h5>

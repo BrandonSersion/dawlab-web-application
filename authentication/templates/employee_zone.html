@@ -11,7 +11,7 @@
     </div>
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#home">Logos & Branding</a>
+            <a class="nav-link active" data-toggle="tab" href="#home">Logos and Branding</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
@@ -21,9 +21,36 @@
         </li>
     </ul>
     <div class="tab-content">
-        <div class="tab-pane active container" id="home"></div>
-        <div class="tab-pane container" id="menu1">dsads</div>
-        <div class="tab-pane container" id="menu2">...</div>
+        <div class="tab-pane active container" id="home">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_classic.png" %}">
+                </div>
+
+                <div class="col-md-12">    
+                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_classic_black_and_white.png" %}">
+                </div>
+
+                <div class="col-md-12">     
+                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_classic_with_background.png" %}">
+                </div>
+
+                <div class="col-md-12">     
+                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_crunched.png" %}">
+                </div>
+
+                <div class="col-md-12">       
+                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_justified_left_black_and_white.png" %}">
+                </div>
+
+                <div class="col-md-12">
+                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_justified_left.png" %}">
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane container" id="menu1">Style Guide</div>
+        <div class="tab-pane container" id="menu2"></div>
     </div>
     {% else %}
         <h1>Please log in.</h1>
