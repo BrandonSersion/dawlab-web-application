@@ -2,9 +2,20 @@
 {% load static %}
 
 {% block content %}
-    <div class="row">
+<div class="container">
+    <div class="row mt-5">
         <div class="offset-md-4 pt-5 m-5">
-            <h1>Entertainment,<br> your choice</h1>
+            <h1>Entertainment,<br> your choice...<br>with Zetflix!</h1>
+        </div>
+        <div class="col-md-8">
+            <img class="logo navbar-brand" src="{% static "./img/app_photo.png" %}">                
         </div>
     </div>
+    <div class="row mt-4">
+        <div class="offset-md-2 col-md-6">
+            <p>Dawlab's Zetflix desktop app serves users video titles <b>they like</b>.</p>                
+        </div>
+    </div>
+</div>
+ 
 {% endblock %}
