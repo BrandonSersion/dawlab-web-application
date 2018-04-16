@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Employee(models.Model):
     last_name = models.TextField(max_length=20, default='')
     first_name = models.TextField(max_length=20, default='')
