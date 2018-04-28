@@ -1,8 +1,7 @@
 from django.test import TestCase
-from content.models import Employee
 from django.core.exceptions import ValidationError
 from unittest import skip, expectedFailure
-
+from .models import Employee
 
 class EmployeeModelTest(TestCase):
 
@@ -15,18 +14,18 @@ class EmployeeModelTest(TestCase):
         test_employee.save()
         test_employee_from_db = Employee.objects.get(pk=1)
         self.assertIsInstance(test_employee_from_db, Employee)
-    
+
     def test_employee_data_inserts_correctly(self):
         test_employee = Employee(
-            last_name='test', first_name='test', 
+            last_name='test', first_name='test',
             job_title='test', job_description='test',
             bio='test', skills='test')
         test_employee.full_clean()
         test_employee.save()
         test_employee_from_db = Employee.objects.get(pk=1)
         expected = 'test'
-        for attr,value in test_employee_from_db.__dict__.items():
-            if attr == '_state' or attr == 'id':
+        for attr, value in test_employee_from_db.__dict__.items():
+            if attr == '_state' or attr == 'id':  # Exclude auto generated attributes
                 continue
             else:
                 self.assertEqual(expected, value)
@@ -117,17 +116,17 @@ class EmployeeModelTest(TestCase):
 
     def test_multiple_employees_can_be_created(self):
         test_employee_1 = Employee(
-            last_name='name1', first_name='test', job_title='test', 
+            last_name='name1', first_name='test', job_title='test',
             job_description='test', bio='test', skills='test')
         test_employee_1.full_clean
         test_employee_1.save()
         test_employee_2 = Employee(
-            last_name='name2', first_name='test', job_title='test', 
+            last_name='name2', first_name='test', job_title='test',
             job_description='test', bio='test', skills='test')
         test_employee_2.full_clean
         test_employee_2.save()
         test_employee_3 = Employee(
-            last_name='name3', first_name='test', job_title='test', 
+            last_name='name3', first_name='test', job_title='test',
             job_description='test', bio='test', skills='test')
         test_employee_3.full_clean
         test_employee_3.save()
@@ -266,7 +265,7 @@ class EmployeeModelTest(TestCase):
             job_description='test', bio='test', skills='test')
         expected = test_employee.first_name + ' ' + test_employee.last_name
         self.assertEqual(expected, str(test_employee))
-        
+
     # EMPLOYEE META TESTS
     def test_employee_duplicate_last_name_duplicate_first_name_fails(self):
         test_employee_1 = Employee(
@@ -284,12 +283,12 @@ class EmployeeModelTest(TestCase):
     @expectedFailure
     def test_employee_different_last_name_duplicate_first_name_passes(self):
         test_employee_1 = Employee(
-            last_name='LAST', first_name='FIRST', job_title='test', 
+            last_name='LAST', first_name='FIRST', job_title='test',
             job_description='test', bio='test', skills='test')
         test_employee_1.full_clean()
         test_employee_1.save()
         test_employee_2 = Employee(
-            last_name='DIFFERENT', first_name='FIRST', job_title='test', 
+            last_name='DIFFERENT', first_name='FIRST', job_title='test',
             job_description='test', bio='test', skills='test')
         with self.assertRaises(ValidationError):
             test_employee_2.full_clean()
@@ -317,10 +316,10 @@ class EmployeeModelTest(TestCase):
         test_employee_1.full_clean()
         test_employee_1.save()
         test_employee_2 = Employee(
-            last_name='LAST', first_name='DIFFERENT', job_title='test', 
+            last_name='LAST', first_name='DIFFERENT', job_title='test',
             job_description='test', bio='test', skills='test')
         with self.assertRaises(ValidationError):
             test_employee_2.full_clean()
             test_employee_2.save()
 
-    # TEST ORDERING
+    # test ordering
