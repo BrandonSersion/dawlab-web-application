@@ -323,6 +323,7 @@ class EmployeeModelTest(TestCase):
             job_description='test', bio='test', skills='test')
         test_employee_1.full_clean()
         test_employee_1.save()
+
         test_employee_2 = Employee(
             last_name='LAST', first_name='FIRST', job_title='test',
             job_description='test', bio='test', skills='test')
@@ -338,6 +339,7 @@ class EmployeeModelTest(TestCase):
             job_description='test', bio='test', skills='test')
         test_employee_1.full_clean()
         test_employee_1.save()
+
         test_employee_2 = Employee(
             last_name='DIFFERENT', first_name='FIRST', job_title='test',
             job_description='test', bio='test', skills='test')
@@ -353,6 +355,7 @@ class EmployeeModelTest(TestCase):
             job_description='test', bio='test', skills='test')
         test_employee_1.full_clean()
         test_employee_1.save()
+
         test_employee_2 = Employee(
             last_name='DIFFERENT', first_name='DIFFERENT', job_title='test',
             job_description='test', bio='test', skills='test')
@@ -368,6 +371,7 @@ class EmployeeModelTest(TestCase):
             job_description='test', bio='test', skills='test')
         test_employee_1.full_clean()
         test_employee_1.save()
+
         test_employee_2 = Employee(
             last_name='LAST', first_name='DIFFERENT', job_title='test',
             job_description='test', bio='test', skills='test')
