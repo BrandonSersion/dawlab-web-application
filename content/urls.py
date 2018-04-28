@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from content import views
+from . import views
 
 urlpatterns = [
     url(r'^$', views.team_page, name='team'),

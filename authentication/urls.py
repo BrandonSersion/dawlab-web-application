@@ -1,6 +1,5 @@
 from django.conf.urls import url, include
-from content import views
-from authentication import views
+from . import views
 
 urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),

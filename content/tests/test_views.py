@@ -1,7 +1,7 @@
 # from django.test import TestCase
 # from django.contrib.staticfiles import finders
 
-# from content.models import Employee
+# from .models import Employee
 
 
 # class HomePageTest(TestCase):
