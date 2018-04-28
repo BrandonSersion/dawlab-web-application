@@ -7,16 +7,14 @@ from unittest import skip, expectedFailure
 class EmployeeModelTest(TestCase):
 
     # EMPLOYEE DATABASE TESTS
-    def test_employee_creation(self):
-        test_employee = Employee()
-        self.assertIsInstance(test_employee, Employee)
-
-    def test_employee_save(self):
+    def test_can_create_employee(self):
         test_employee = Employee(last_name='test', first_name='test',
                         job_title='test', job_description='test', bio='test',
                         skills='test')
         test_employee.full_clean()
         test_employee.save()
+        test_employee_from_db = Employee.objects.get(pk=1)
+        self.assertIsInstance(test_employee_from_db, Employee)
     
     def test_employee_data_inserts_correctly(self):
         test_string = "TEST_STRING"
@@ -25,12 +23,120 @@ class EmployeeModelTest(TestCase):
                         skills=test_string)
         test_employee.full_clean()
         test_employee.save()
+        test_employee_from_db = Employee.objects.get(pk=1)
         expected = test_string
-        for attr,value in test_employee.__dict__.items():
+        for attr,value in test_employee_from_db.__dict__.items():
             if attr == '_state' or attr == 'id':
                 continue
             else:
                 self.assertEqual(expected, value)
+
+    def test_employee_last_name_can_be_overwritten(self):
+        test_employee = Employee(last_name='test', first_name='test',
+                        job_title='test', job_description='test', bio='test',
+                        skills='test')
+        test_employee.full_clean()
+        test_employee.save()
+        changed_string = "CHANGED"
+        test_employee.last_name = changed_string
+        test_employee.full_clean
+        test_employee.save()
+        test_employee_from_db = Employee.objects.get(pk=1)
+        expected = changed_string
+        self.assertEqual(expected, test_employee_from_db.last_name)
+
+    def test_employee_first_name_can_be_overwritten(self):
+        test_employee = Employee(last_name='test', first_name='test',
+                        job_title='test', job_description='test', bio='test',
+                        skills='test')
+        test_employee.full_clean()
+        test_employee.save()
+        changed_string = "CHANGED"
+        test_employee.first_name = changed_string
+        test_employee.full_clean
+        test_employee.save()
+        test_employee_from_db = Employee.objects.get(pk=1)
+        expected = changed_string
+        self.assertEqual(expected, test_employee_from_db.first_name)
+
+    def test_employee_job_title_can_be_overwritten(self):
+        test_employee = Employee(last_name='test', first_name='test',
+                        job_title='test', job_description='test', bio='test',
+                        skills='test')
+        test_employee.full_clean()
+        test_employee.save()
+        changed_string = "CHANGED"
+        test_employee.job_title = changed_string
+        test_employee.full_clean
+        test_employee.save()
+        test_employee_from_db = Employee.objects.get(pk=1)
+        expected = changed_string
+        self.assertEqual(expected, test_employee_from_db.job_title)
+
+    def test_employee_job_description_can_be_overwritten(self):
+        test_employee = Employee(last_name='test', first_name='test',
+                        job_title='test', job_description='test', bio='test',
+                        skills='test')
+        test_employee.full_clean()
+        test_employee.save()
+        changed_string = "CHANGED"
+        test_employee.job_description = changed_string
+        test_employee.full_clean
+        test_employee.save()
+        test_employee_from_db = Employee.objects.get(pk=1)
+        expected = changed_string
+        self.assertEqual(expected, test_employee_from_db.job_description)
+
+    def test_employee_bio_can_be_overwritten(self):
+        test_employee = Employee(last_name='test', first_name='test',
+                        job_title='test', job_description='test', bio='test',
+                        skills='test')
+        test_employee.full_clean()
+        test_employee.save()
+        changed_string = "CHANGED"
+        test_employee.bio = changed_string
+        test_employee.full_clean
+        test_employee.save()
+        test_employee_from_db = Employee.objects.get(pk=1)
+        expected = changed_string
+        self.assertEqual(expected, test_employee_from_db.bio)
+
+    def test_employee_skills_can_be_overwritten(self):
+        test_employee = Employee(last_name='test', first_name='test',
+                        job_title='test', job_description='test', bio='test',
+                        skills='test')
+        test_employee.full_clean()
+        test_employee.save()
+        changed_string = "CHANGED"
+        test_employee.skills = changed_string
+        test_employee.full_clean
+        test_employee.save()
+        test_employee_from_db = Employee.objects.get(pk=1)
+        expected = changed_string
+        self.assertEqual(expected, test_employee_from_db.skills)
+
+    def test_multiple_employees_can_be_created(self):
+        test_employee_1 = Employee(last_name='name1', first_name='test',
+                        job_title='test', job_description='test', bio='test',
+                        skills='test')
+        test_employee_1.full_clean
+        test_employee_1.save()
+        test_employee_2 = Employee(last_name='name2', first_name='test',
+                        job_title='test', job_description='test', bio='test',
+                        skills='test')
+        test_employee_2.full_clean
+        test_employee_2.save()
+        test_employee_3 = Employee(last_name='name3', first_name='test',
+                        job_title='test', job_description='test', bio='test',
+                        skills='test')
+        test_employee_3.full_clean
+        test_employee_3.save()
+        test_employee_1_from_db = Employee.objects.get(pk=1)
+        test_employee_2_from_db = Employee.objects.get(pk=2)
+        test_employee_3_from_db = Employee.objects.get(pk=3)
+        self.assertIsInstance(test_employee_1_from_db, Employee)
+        self.assertIsInstance(test_employee_2_from_db, Employee)
+        self.assertIsInstance(test_employee_3_from_db, Employee)
 
     # EMPLOYEE CONSTRAINT TESTS
     def test_no_empty_strings_in_employee_last_name(self):
@@ -217,4 +323,4 @@ class EmployeeModelTest(TestCase):
             test_employee_2.full_clean()
             test_employee_2.save()
 
-    # def test_employee_ordering(self):
+    # TEST ORDERING
