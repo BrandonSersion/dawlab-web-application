@@ -1,4 +1,4 @@
-from time import time, sleep
+import time
 # import os
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -33,7 +33,6 @@ class FunctionalTest(StaticLiveServerTestCase):
 class LayoutAndStylingTest(FunctionalTest):
 
     def test_layout_and_styling_home(self):
-
         # User visits home page.
         self.browser.get(self.live_server_url)
         self.browser.set_window_size(1024, 768)
@@ -46,9 +45,9 @@ class LayoutAndStylingTest(FunctionalTest):
         self.browser.find_element_by_tag_name('h1')
         self.browser.find_element_by_tag_name('footer')
 
-        # User sees the correct bootstrap theme
+        # User sees the correct bootswatch theme served from the bootswatch cdn
         navbar_background_color = self.browser.find_element_by_tag_name('nav').value_of_css_property("background-color")
-        self.assertEqual(navbar_background_color, 'rgb(52, 58, 64)')
+        self.assertEqual(navbar_background_color, 'rgba(0, 0, 0, 0)')
 
         # CURRENTLY BROKEN User sees the correct static images
         # img_from_page = self.browser.find_element_by_tag_name('img').get_attribute('size')
@@ -60,10 +59,9 @@ class LayoutAndStylingTest(FunctionalTest):
         # User sees the header in Arial or Times font
         h1_font_from_page = self.browser.find_element_by_tag_name('h1').value_of_css_property("font-family")
         self.assertEqual(h1_font_from_page, '"Arial", Times, serif')
-
+        
     def test_layout_and_styling_our_team(self):
-
-        our_team_page_url = '/content/our_team/'
+        our_team_page_url = '/content/'
         # User visits home page.
         combined_url = self.live_server_url + our_team_page_url
         self.browser.get(combined_url)
@@ -78,7 +76,7 @@ class LayoutAndStylingTest(FunctionalTest):
 
         # User sees the correct bootstrap theme
         navbar_background_color = self.browser.find_element_by_tag_name('nav').value_of_css_property("background-color")
-        self.assertEqual(navbar_background_color, 'rgb(52, 58, 64)')
+        self.assertEqual(navbar_background_color, 'rgba(0, 0, 0, 0)')
 
         # CURRENTLY BROKEN 
         # User sees the correct static images
@@ -92,18 +90,18 @@ class LayoutAndStylingTest(FunctionalTest):
 
 
 class NavigationTest(FunctionalTest):
-    @skip('')
+
     def test_navigation_between_home_and_our_team(self):
 
         # User visits the home page.
         self.browser.get(self.live_server_url)
         self.browser.set_window_size(1024, 768)
         home_url = self.browser.current_url
-        our_team_url = "/content/our_team/"
-        employee_zone = "/content/employee_zone/"
+        our_team_url = "/content/"
+        employee_zone = "/authentication/"
 
         # User clicks the navbar company logo, remains on the home page.
-        self.browser.find_element_by_link_text('Dawlab Software').click()
+        self.browser.find_element_by_class_name('navbar-brand').click()
         self.wait_for(lambda: self.assertEqual(home_url, self.browser.current_url))
         assert 'DAWLAB Software' in self.browser.title
 
@@ -118,11 +116,11 @@ class NavigationTest(FunctionalTest):
         assert 'DAWLAB Software' in self.browser.title
 
         # User clicks the navbar company logo, gets sent to the home page.
-        self.browser.find_element_by_link_text('Dawlab Software').click()
+        self.browser.find_element_by_class_name('navbar-brand').click()
         self.wait_for(lambda: self.assertEqual(home_url, self.browser.current_url))
         assert 'DAWLAB Software' in self.browser.title
 
-        # User clicks the navbar employee_zone option, gets sent to the login form.
+        # User clicks the navbar employee_zone option, gets sent to the login page.
         self.browser.find_element_by_link_text('Employee Zone').click()
         self.wait_for(lambda: self.assertIn(employee_zone, self.browser.current_url))
         assert 'DAWLAB Software' in self.browser.title
@@ -134,19 +132,17 @@ class NavigationTest(FunctionalTest):
 
 
 class DataDisplayTest(FunctionalTest):
-    @skip('')
+
+    @skip("Test broken, won't load query assets.")
     def test_data_display_our_team(self):
 
-        DEAN_OATES = "Dean Oates"
+        our_team_page_url = '/content/'
 
-        our_team_page_url = '/content/our_team/'
         # User visits home page.
         combined_url = self.live_server_url + our_team_page_url
         self.browser.get(combined_url)
         self.browser.set_window_size(1024, 768)
-
-        # User sees Dean Oates profile header
-        self.assertEqual(DEAN_OATES, self.browser.find_element_by_id('0').text)
+        time.sleep(5)
 
         # User sees none of the card images are empty
         card_images = self.browser.find_elements_by_class_name('profile-pictures')
