@@ -12,7 +12,7 @@
 {% if socialaccount_providers %}
 
   <div class="row">
-      <div class="mx-auto mt-5">
+      <div class="mt-5 p-2">
           <h1 class="medium">{% trans "Sign in with GitHub, or with your Dawlab account." %}</h1>                                        
       </div>
   </div>
@@ -23,8 +23,9 @@
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<p>{% blocktrans %}
+  <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+</p>
 {% endif %}
 <form class="login" id="login_form" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
