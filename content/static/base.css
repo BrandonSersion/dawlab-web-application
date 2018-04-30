@@ -14,11 +14,17 @@ h1{
 }
 
 .card{
-    width:11em;
-    height:16em;
+    width:10em;
+    height:12.5em;
+}
+
+.card-title{
+    margin:0px;
+    padding:0px;
 }
 
 .card-text{
+    font-weight:bold;        
     font-size:.5em;
 }
 
@@ -32,7 +38,6 @@ h1{
 
 .medium{
     font-family: "Arial", Times, serif;
-    
     font-size:1em;
 }
 
