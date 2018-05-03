@@ -1,6 +1,6 @@
-db.sqlite3
 geckodriver.log
 __pycache__
 *.pyc
 .vscode
-virtenv_config
+# settings.py
+# db.sqlite3
