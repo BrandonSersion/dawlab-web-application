@@ -59,7 +59,7 @@ class LayoutAndStylingTest(FunctionalTest):
         # User sees the header in Arial or Times font
         h1_font_from_page = self.browser.find_element_by_tag_name('h1').value_of_css_property("font-family")
         self.assertEqual(h1_font_from_page, '"Arial", Times, serif')
-        
+
     def test_layout_and_styling_our_team(self):
         our_team_page_url = '/content/'
         # User visits home page.
@@ -78,7 +78,7 @@ class LayoutAndStylingTest(FunctionalTest):
         navbar_background_color = self.browser.find_element_by_tag_name('nav').value_of_css_property("background-color")
         self.assertEqual(navbar_background_color, 'rgba(0, 0, 0, 0)')
 
-        # CURRENTLY BROKEN 
+        # CURRENTLY BROKEN
         # User sees the correct static images
         # img_from_page = self.browser.find_element_by_tag_name('img').get_attribute('size')
         # img_from_file = os.path.join(os.path.dirname(__file__), '../content/static/img/Ali.jpg')

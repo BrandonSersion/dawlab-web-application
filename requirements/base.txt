@@ -1,0 +1,18 @@
+# SYSTEM LEVEL PACKAGES
+# python==3.6.4
+# pip==9.0.1
+# python3-venv # < Part of the core Python library,
+               # but not included in Ubuntu 16.05 and Debian
+
+# Create and activate venv virtual environment, then install the rest
+
+# DJANGO PACKAGES
+Django==1.11.10
+django-allauth==0.35.0
+
+
+# This base file is inherited by local.txt and production.txt.
+# Use:
+# pip install -r requirements/local.txt 
+# OR 
+# pip install -r requirements/production.txt
