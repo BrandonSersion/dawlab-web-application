@@ -27,11 +27,13 @@ CONSOLE COMMANDS
     RUN FUNCTIONAL TESTS
         python manage.py test functional_tests
 
+
     RUN UNIT TESTS
         python manage.py test content
 
 
 HOW TO LOG IN TO HIDDEN ADMIN PAGE
+
     url: 'http://127.0.0.1:8000'/admin ['localhost_url/admin']
     admin credentials:
         username: brandon
