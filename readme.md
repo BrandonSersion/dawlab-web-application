@@ -31,10 +31,12 @@ CONSOLE COMMANDS
     RUN UNIT TESTS
         python manage.py test content
 
+    *more info in the requirements folder*
+
 
 HOW TO LOG IN TO HIDDEN ADMIN PAGE
 
-    url: 'http://127.0.0.1:8000'/admin ['localhost_url/admin']
+    url: 'host_url'/admin/
     admin credentials:
         username: brandon
         email: s@s.com
@@ -44,7 +46,7 @@ HOW TO LOG IN TO HIDDEN ADMIN PAGE
 SECURITY WARNINGS
 
     BEWARE admin credentials are public.
-    Change admin credentials before setting up production server.
+    Change admin credentials before setting up real production server.
 
     BEWARE database key in settings.py is public.
-    Change database key before setting up production server.
+    Change database key before setting up real production server.

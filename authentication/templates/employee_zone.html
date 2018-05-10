@@ -4,91 +4,131 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    <div class="row">
-        <div class="mx-auto mt-5 mb-4">
-            <h1>Welcome {{ user.username }}!!!</h1>
-        </div>
-    </div>
     
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#home">Logos and Branding</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#menu1">Style Guide</a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane active container" id="home">
-            <div class="row">
+    <div class="row">
+        <div class="col-md-9">
 
-                <div class="col-md-12 border">
-                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_classic.png" %}">
+            <div class="text-center mt-5 mb-4">
+                <h1>Welcome {{ user.username }}!</h1>
+            </div>
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#logos">Logos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#style">Style Guide</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#financials">Financials</a>
+                </li>
+            </ul>
+        
+            <div class="tab-content">
+
+                <div class="tab-pane active container" id="logos">
                     <div class="row">
-                        <div class="col-md-6">
-                            <p>General purpose logo.</p>
+                        <div class="border">
+                            <img class="auth-images navbar-brand" src="{% static "./img/Dawlab_classic.png" %}">
+                            <div class="col-md-8">
+                                <p>General purpose logo.</p>
+                            </div>
+                        </div>
+        
+                        <div class="border">    
+                            <img class="auth-images navbar-brand" src="{% static "./img/Dawlab_classic_black_and_white.png" %}">
+                            <div class="col-md-8">
+                                <p>General purpose logo, black and white. Used for black ink prints.</p>                            
+                            </div>
+                        </div>
+            
+                        <div class="border">     
+                            <img class="auth-images navbar-brand" src="{% static "./img/Dawlab_classic_with_background.png" %}">
+                            <div class="col-md-8">
+                                <p>General purpose logo, with white background. Used if the logo colors blend in with background colors.</p>                                                
+                            </div>
+                        </div>
+            
+                        <div class="border">     
+                            <img class="auth-images navbar-brand" src="{% static "./img/Dawlab_crunched.png" %}">
+                            <div class="col-md-8">
+                                <p>Special logo in two pieces, centered. Used for app store icon and website favicon.</p>                                                                    
+                            </div>
+                        </div>
+            
+                        <div class="border">       
+                            <img class="auth-images navbar-brand" src="{% static "./img/Dawlab_justified_left_black_and_white.png" %}">
+                            <div class="col-md-8">
+                                <p>General purpose logo in two pieces, justified left and black and white. Used if not enough horizontal space and logo colors blend in with background colors.</p>                            
+                            </div>
+                        </div>
+            
+                        <div class="border">
+                            <img class="auth-images navbar-brand" src="{% static "./img/Dawlab_justified_left.png" %}">
+                            <div class="col-md-8">
+                                <p>General purpose logo in two pieces, justified left and black and white. Used if not enough horizontal space. Also used for browser website icon.</p>                                                
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-12 border">    
-                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_classic_black_and_white.png" %}">
-                    <div class="col-md-6">
-                        <p>General purpose logo, black and white. Used for black ink prints.</p>                            
+        
+                <div class="tab-pane container" id="style">
+                    <div class="row">                                
+                        <ul class="p-4 border">
+                            <li>
+                                Logo typeface left font: Sans Bold
+                                    
+                            </li>
+                            <li>
+                                Logo typeface right font: URW Gothic Semi-Bold
+                            </li>
+                            <li>
+                                Logo size proportion between left and right typeface: 76:75
+                                    
+                            </li>
+                            <li>
+                                Logo red: 4d0000 
+                            </li>
+                            <li>
+                                Logo blue: 004857
+                            </li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="col-md-12 border">     
-                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_classic_with_background.png" %}">
-                    <div class="col-md-6">
-                        <p>General purpose logo, with white background. Used if the logo colors blend in with background colors.</p>                                                
+        
+                <div class="tab-pane container" id="financials">
+                    <div class="row">
+                        <div class="p-4 border">
+                            <img class="auth-images navbar-brand" src="{% static "./img/financials1.jpg" %}">
+                        </div>
+        
+                        <div class="p-4 border">    
+                            <img class="auth-images navbar-brand" src="{% static "./img/financials2.jpg" %}">
+                        </div>
+        
+                        <div class="p-4 border">     
+                            <img class="auth-images navbar-brand" src="{% static "./img/financials3.jpg" %}">
+                        </div>
+        
+                        <div class="p-4 border">     
+                            <img class="auth-images navbar-brand" src="{% static "./img/financials4.jpg" %}">
+                        </div>
+        
+                        <div class="p-4 border">       
+                            <img class="auth-images navbar-brand" src="{% static "./img/financials5.jpg" %}">
+                        </div>
+        
+                        <div class="p-4 border">
+                            <img class="auth-images navbar-brand" src="{% static "./img/financials6.jpg" %}">
+                        </div>
                     </div>
                 </div>
+        
+            </div>                
 
-                <div class="col-md-12 border">     
-                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_crunched.png" %}">
-                    <div class="col-md-6">
-                        <p>Special logo in two pieces, centered. Used for app store icon.</p>                                                                    
-                    </div>
-                </div>
-
-                <div class="col-md-12 border">       
-                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_justified_left_black_and_white.png" %}">
-                    <div class="col-md-6">
-                        <p>General purpose logo in two pieces, justified left and black and white. Used if not enough horizontal space and logo colors blend in with background colors.</p>                            
-                    </div>
-                </div>
-
-                <div class="col-md-12 border">
-                    <img class="logo navbar-brand" src="{% static "./img/Dawlab_justified_left.png" %}">
-                    <div class="col-md-6">
-                        <p>General purpose logo in two pieces, justified left and black and white. Used if not enough horizontal space. Also used for browser website icon.</p>                                                
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="tab-pane container mt-5" id="menu1">
-            <ul>
-                <li>
-                    Logo typeface left font: Sans Bold
-                        
-                </li>
-                <li>
-                    Logo typeface right font: URW Gothic Semi-Bold
-                </li>
-                <li>
-                    Logo size proportion between left and right typeface: 76:75
-                        
-                </li>
-                <li>
-                    Logo red: 4d0000 
-                </li>
-                <li>
-                    Logo blue: 004857
-                </li>
-            </ul>
         </div>
     </div>
+
     {% else %}
         <h1 class="text-center m-5">Please <a href="{% url 'authentication' %}">log in</a>.</h1>
     {% endif %}
