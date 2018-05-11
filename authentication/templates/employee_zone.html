@@ -3,12 +3,13 @@
 {% load static %}
 
 {% block content %}
+
     {% if user.is_authenticated %}
     
     <div class="row">
         <div class="col-md-12">
 
-            <div class="text-center mt-5 mb-4">
+            <div class="mt-5 mb-4">
                 <h1>Welcome {{ user.username }}!</h1>
             </div>
 
@@ -77,20 +78,18 @@
                         <ul class="p-4 border">
                             <li>
                                 Logo typeface left font: Sans Bold
-                                    
                             </li>
                             <li>
                                 Logo typeface right font: URW Gothic Semi-Bold
                             </li>
                             <li>
                                 Logo size proportion between left and right typeface: 76:75
-                                    
                             </li>
                             <li>
-                                Logo red: 4d0000 
+                                Logo red: #4d0000 
                             </li>
                             <li>
-                                Logo blue: 004857
+                                Logo blue: #004857
                             </li>
                         </ul>
                     </div>
@@ -101,23 +100,18 @@
                         <div class="p-4 border">
                             <img class="auth-images navbar-brand" src="{% static "./img/financials1.jpg" %}">
                         </div>
-        
-                        <div class="p-4 border">    
+                        <div class="p-4 border">
                             <img class="auth-images navbar-brand" src="{% static "./img/financials2.jpg" %}">
                         </div>
-        
-                        <div class="p-4 border">     
+                        <div class="p-4 border">
                             <img class="auth-images navbar-brand" src="{% static "./img/financials3.jpg" %}">
                         </div>
-        
                         <div class="p-4 border">     
                             <img class="auth-images navbar-brand" src="{% static "./img/financials4.jpg" %}">
                         </div>
-        
                         <div class="p-4 border">       
                             <img class="auth-images navbar-brand" src="{% static "./img/financials5.jpg" %}">
                         </div>
-        
                         <div class="p-4 border">
                             <img class="auth-images navbar-brand" src="{% static "./img/financials6.jpg" %}">
                         </div>
@@ -128,8 +122,8 @@
 
         </div>
     </div>
-
     {% else %}
         <h1 class="text-center m-5">Please <a href="{% url 'authentication' %}">log in</a>.</h1>
     {% endif %}
+
 {% endblock %}

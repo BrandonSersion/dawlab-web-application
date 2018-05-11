@@ -2,16 +2,20 @@
 {% load static %}
 
 {% block content %}
+
     <div class="row">
         <div class="mx-auto mt-5 mb-4">
             <h1>Our Team</h1>                                        
         </div>
     </div>
+
     <div class="row mx-auto">
         {% for employee in employees %}                
             <div class="card mx-auto mb-4 p-2">
                 {% with 'img/'|add:employee.first_name|add:'.jpg' as image_src %}
-                    <div class="card-body mx-auto"><img class="profile-pictures" src="{% static image_src %}"></div>
+                    <div class="card-body mx-auto">
+                        <img class="profile-pictures" src="{% static image_src %}">
+                    </div>
                 {% endwith %}   
                 <h4 class="card-title mx-auto">
                     {{employee.first_name}} {{employee.last_name}}
@@ -25,4 +29,5 @@
             </div>
         {% endfor %}
     </div>
+
 {% endblock %}

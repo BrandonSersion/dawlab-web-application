@@ -7,40 +7,30 @@
 
 {% block content %}
 
-{% get_providers as socialaccount_providers %}
+  {% get_providers as socialaccount_providers %}
 
-{% if socialaccount_providers %}
-
-  <div class="row">
-      <div class="mt-5 p-2">
-          <h1 class="medium">{% trans "Sign in with GitHub, or with your Dawlab account." %}</h1>                                        
+  {% if socialaccount_providers %}
+    <div class="row">
+      <div class="mt-5">
+        <h1 class="medium">{% trans "Sign in with GitHub, or with your Dawlab account." %}</h1>                                        
       </div>
-  </div>
-  <div class="m-1">
+    </div>
+    <div class="ml-2">
       {% include "socialaccount/snippets/provider_list.html" with process="login" %}    
-  </div>
-
-{% include "socialaccount/snippets/login_extra.html" %}
-
-{% else %}
-<p>{% blocktrans %}
-  <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
-</p>
-{% endif %}
-<form class="login" id="login_form" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button class="primaryAction m-1" type="submit">{% trans "Dawlab Sign In" %}</button>
-  <a class="button secondaryAction small" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>  
-</form>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    </div>
   {% endif %}
-  <button class="primaryAction m-1 p-" type="submit">{% trans "Create Account" %} &raquo;</button>
-</form>
+
+  <form class="login" id="login_form" method="POST" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="primaryAction m-1" type="submit">{% trans "Dawlab Sign In" %}</button>
+    <a class="button secondaryAction small" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>  
+  </form>
+
+  <form class="signup" id="signup_form" method="POST" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="primaryAction m-1" type="submit">{% trans "Create Account" %} &raquo;</button>
+  </form>
 
 {% endblock %}
