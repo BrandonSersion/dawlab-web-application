@@ -6,7 +6,7 @@
     {% if user.is_authenticated %}
     
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
 
             <div class="text-center mt-5 mb-4">
                 <h1>Welcome {{ user.username }}!</h1>
@@ -50,7 +50,7 @@
                         </div>
             
                         <div class="border">     
-                            <img class="auth-images navbar-brand" src="{% static "./img/Dawlab_crunched.png" %}">
+                            <img class="ml-3 auth-images navbar-brand" src="{% static "./img/Dawlab_crunched.png" %}">
                             <div class="col-md-8">
                                 <p>Special logo in two pieces, centered. Used for app store icon and website favicon.</p>                                                                    
                             </div>
