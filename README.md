@@ -4,13 +4,12 @@ Full stack web application for a small technology company built with the framewo
 </p>
 
 ## SECURITY WARNINGS
-<p>
-    Superuser credentials are public - delete that superuser and create a new one before setting up a real production server.
+Superuser credentials are public - delete that superuser and create a new one before setting up production server.
 
-    Database key in settings.py is public - change database key before setting up a real production server.
+Database key in settings.py is public - change database key before setting up production server.
 
-    Debug mode in settings.py is active - deactivate debug mode before setting up a real production server.
-</p>
+Debug mode in settings.py is active - deactivate debug mode before setting up production server.
+
 
 ## CONSOLE COMMANDS 
 
