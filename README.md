@@ -1,11 +1,7 @@
 # DAWLAB WEB APPLICATION
-
-    Full stack web application built for a small technology company with
-the framework Python Django. Bootstrap4 user interface. Has a functional
-test suite built with Selenium Webdriver and a unit test suite built
-with Unittest. Uses a Sqlite database. Uses django-allauth for user
-authentication. Allows you to create an account or log in with your
-GitHub account.
+<p>
+Full stack web application built for a small technology company with the framework Python Django. Bootstrap4 user interface. Has a functional test suite built with Selenium Webdriver and a unit test suite built with Unittest. Uses a Sqlite database. Uses django-allauth for user authentication. Allows you to create an account or log in with your GitHub account.
+</p>
 
 ## SECURITY WARNINGS
 
