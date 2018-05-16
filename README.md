@@ -4,14 +4,14 @@
 
 ## SECURITY WARNINGS
 
-    BEWARE admin credentials are public.
-    Delete that admin and create a new one before setting up a real production server.
+    Superuser credentials are public.
+    Delete that superuser and create a new one before setting up a real production server.
 
-    BEWARE database key in settings.py is public.
-    Change database key before setting up real production server.
+    Database key in settings.py is public.
+    Change database key before setting up a real production server.
 
-    BEWARE debug mode in settings.py is active.
-    Deactivate debug mode before setting up real production server.
+    Debug mode in settings.py is active.
+    Deactivate debug mode before setting up a real production server.
 
 
 ## CONSOLE COMMANDS 
@@ -33,8 +33,8 @@
             pip install -r requirements/production.txt
 
 ### RUN SERVER
-        cd 'folder containing virtual environment name'
-        source 'virtual environment name'/bin/activate
+        cd 'folder containing virtual environment folder'
+        source 'virtual environment folder'/bin/activate
         cd 'folder containing DAWLAB_SITE manage.py'
         python manage.py runserver
 
@@ -44,7 +44,7 @@
 ### RUN UNIT TESTS
         python manage.py test content
 
-    *more info in the requirements folder*
+#### *more info in the requirements folder*
 
 
 ## HOW TO LOG IN TO HIDDEN ADMIN PAGE
